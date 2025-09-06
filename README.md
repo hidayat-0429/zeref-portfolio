@@ -1,28 +1,22 @@
-# Zeref | Portofolio Digital
+# Zeref | Cinematic Dark Portfolio
 
-Portofolio pribadi Zeref, kreator digital & developer. Dibangun dengan *HTML* dan *Tailwind CSS. Tema gelap elegan dengan efek interaktif saat scroll menggunakan **ScrollReveal*.
+A dark, cinematic personal portfolio showcasing *Zeref*’s skills, projects, and contact info with interactive scroll effects and glitchy visuals.  
 
----
+## Features
+Dark gradient background with smoke & subtle blood drip animations
+Glitch text effect for the main title
+Fade-in sections on scroll
+Hover effects on links, titles, and lists
+Scroll-to-top button & optional background audio
+Fully responsive design
 
-## Fitur
+## Sections
+*About Me* – Personal intro
+*Skills* – HTML, CSS, JS, UI/UX, Git, Figma
+*Projects* – Portfolio highlights
+*Contact* – Social links & email
 
-Hero section cinematic dengan gradient teks
-About, Proses Kerja, Blog, FAQ, dan Contact form
-Card interaktif dengan hover & animasi masuk saat scroll
-Footer dengan GitHub, Instagram, dan WhatsApp
-
----
-
-## Teknologi
-
-HTML5
-Tailwind CSS
-ScrollReveal.js
-
----
-
-## Cara Menjalankan
-
-Clone repository:
+## Usage
+Clone the repo:
 ```bash
-git clone https://github.com/hidayat-0429/my-website.git
+git clone https://github.com/hidayat-0429/zeref-portfolio.git
