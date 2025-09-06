@@ -42,7 +42,7 @@ body{
 .drop{position:absolute;top:0;width:5px;background:var(--red);border-radius:50%;opacity:0.7;animation:drip 4s infinite ease-in;}
 @keyframes drip{0%{transform:translateY(0);opacity:1;}70%{opacity:1;}100%{transform:translateY(150px);opacity:0;}}
 
-/* Nav */
+/* ===== Nav ===== */
 nav{
   text-align:center;
   margin:40px auto;
@@ -72,32 +72,24 @@ nav a::after{
 nav a:hover{color:var(--hover-red);transform:scale(1.05);}
 nav a:hover::after{width:100%;}
 
-/* Header with animated letters */
+/* ===== Header ===== */
 header{text-align:center;padding-bottom:50px;position:relative;overflow:hidden;}
-header h1{
+header h1.glitch{
   font-size:4rem;
   font-weight:900;
-  display:inline-block;
-}
-header h1 span{
   display:inline-block;
   background:linear-gradient(45deg,var(--red),#ff5555);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   text-shadow:0 0 10px rgba(255,44,44,0.5);
-  animation:letterGlitch 2s infinite;
+  animation:wordGlitch 2s infinite;
 }
-header h1 span:nth-child(1){animation-delay:0s;}
-header h1 span:nth-child(2){animation-delay:0.1s;}
-header h1 span:nth-child(3){animation-delay:0.2s;}
-header h1 span:nth-child(4){animation-delay:0.3s;}
-header h1 span:nth-child(5){animation-delay:0.4s;}
-@keyframes letterGlitch{
-  0%,100%{transform:translate(0,0);text-shadow:2px 0 red,-2px 0 cyan;}
-  20%{transform:translate(-2px,0);text-shadow:-2px 0 red,2px 0 cyan;}
-  40%{transform:translate(2px,0);text-shadow:2px 0 cyan,-2px 0 red;}
-  60%{transform:translate(-3px,0);text-shadow:-3px 0 red,3px 0 cyan;}
-  80%{transform:translate(2px,0);text-shadow:2px 0 red,-2px 0 cyan;}
+@keyframes wordGlitch {
+  0%,100% {transform:translate(0,0);text-shadow:2px 0 red,-2px 0 cyan;}
+  20% {transform:translate(-2px,0);text-shadow:-2px 0 red,2px 0 cyan;}
+  40% {transform:translate(2px,0);text-shadow:2px 0 cyan,-2px 0 red;}
+  60% {transform:translate(-3px,0);text-shadow:-3px 0 red,3px 0 cyan;}
+  80% {transform:translate(2px,0);text-shadow:2px 0 red,-2px 0 cyan;}
 }
 header p{
   color:var(--gray);
@@ -189,6 +181,14 @@ footer{
 /* Social links */
 a.social-link{color:var(--red);font-weight:700;text-decoration:none;margin-right:24px;transition:all 0.3s;}
 a.social-link:hover{color:#ff5555;text-shadow:0 0 12px var(--red);}
+
+/* ===== Responsive ===== */
+@media (max-width:768px){
+  header h1.glitch{font-size:2.5rem;}
+  section{padding:20px;}
+  h2{font-size:1.5rem;}
+  p,ul{font-size:1rem;}
+}
 </style>
 </head>
 <body>
@@ -210,21 +210,19 @@ a.social-link:hover{color:#ff5555;text-shadow:0 0 12px var(--red);}
 </nav>
 
 <header>
-  <h1>
-    <span>Z</span><span>e</span><span>r</span><span>e</span><span>f</span>
-  </h1>
+  <h1 class="glitch">Zeref</h1>
   <p>"Surviving in the shadows. Creating in silence."</p>
 </header>
 
 <section id="about">
-  <h2>?? About Me</h2>
+  <h2>👤 About Me</h2>
   <p>I am <strong>Zeref</strong>, a coder living in shadows and darkness.  
-  I exist between two worlds � coding by day, reflecting by night.  
+  I exist between two worlds — coding by day, reflecting by night.  
   This is my space to share my creations.</p>
 </section>
 
 <section id="skills">
-  <h2>?? Skills</h2>
+  <h2>⚡ Skills</h2>
   <ul>
     <li>HTML, CSS, JavaScript</li>
     <li>Minimalist UI/UX design</li>
@@ -234,15 +232,15 @@ a.social-link:hover{color:#ff5555;text-shadow:0 0 12px var(--red);}
 </section>
 
 <section id="projects">
-  <h2>?? Projects</h2>
+  <h2>📂 Projects</h2>
   <ul>
-    <li><strong>GhoulID</strong> � Dark profile template</li>
-    <li><strong>SilentBlog</strong> � Minimal aesthetic blog</li>
+    <li><strong>GhoulID</strong> — Dark profile template</li>
+    <li><strong>SilentBlog</strong> — Minimal aesthetic blog</li>
   </ul>
 </section>
 
 <section id="contact">
-  <h2>?? Contact</h2>
+  <h2>📩 Contact</h2>
   <p>Want to collaborate or just say hi? Reach out:</p>
   <p>
     <a href="https://github.com/hidayat-0429" target="_blank" class="social-link">GitHub</a>
@@ -254,7 +252,34 @@ a.social-link:hover{color:#ff5555;text-shadow:0 0 12px var(--red);}
   &copy; 2025 Zeref. Created in darkness, shared in light.
 </footer>
 
-<button onclick="topFunction()" id="topBtn" title="Back to top">? Top</button>
+<button onclick="topFunction()" id="topBtn" title="Back to top">⬆ Top</button>
+
+<!-- ===== Audio ambience ===== -->
+<audio id="bgAudio" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/09/audio_03e4c06d45.mp3" type="audio/mpeg">
+</audio>
+<button id="audioBtn" title="Toggle Sound">🔇</button>
+
+<style>
+#audioBtn{
+  position:fixed;
+  bottom:25px;left:25px;
+  background:rgba(30,30,30,0.8);
+  color:var(--red);
+  border:none;
+  font-size:1.5rem;
+  padding:10px 14px;
+  border-radius:50%;
+  cursor:pointer;
+  box-shadow:0 0 15px rgba(255,44,44,0.4);
+  transition:0.3s;
+}
+#audioBtn:hover{
+  background:rgba(50,50,50,0.9);
+  transform:scale(1.1);
+  box-shadow:0 0 25px rgba(255,44,44,0.7);
+}
+</style>
 
 <script>
 // Fade-in sections
@@ -268,6 +293,22 @@ sections.forEach(section=>observer.observe(section));
 const topBtn=document.getElementById('topBtn');
 window.addEventListener('scroll',()=>{topBtn.style.display=window.scrollY>150?'block':'none';});
 function topFunction(){window.scrollTo({top:0,behavior:'smooth'});}
+
+// Audio control
+const bgAudio=document.getElementById('bgAudio');
+const audioBtn=document.getElementById('audioBtn');
+let isPlaying=false;
+audioBtn.addEventListener('click',()=>{
+  if(isPlaying){
+    bgAudio.pause();
+    audioBtn.textContent="🔇";
+  }else{
+    bgAudio.volume=0.3;
+    bgAudio.play();
+    audioBtn.textContent="🔊";
+  }
+  isPlaying=!isPlaying;
+});
 </script>
 
 </body>
