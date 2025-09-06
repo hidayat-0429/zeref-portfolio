@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zeref | Cinematic Dark Aesthetic</title>
+<style>
+:root{
+  --bg:#0b0b0b;
+  --text:#e6e6e6;
+  --red:#ff2c2c;
+  --hover-red:#ff5555;
+  --gray:#aaa;
+}
+
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:linear-gradient(120deg,#0b0b0b,#1a1a1a);
+  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+}
+
+/* Smoke overlay */
+.smoke{
+  position:fixed;top:0;left:0;width:200%;height:200%;
+  background:radial-gradient(circle,rgba(0,0,0,0.4)10%,transparent 60%) repeat;
+  background-size:300px 300px;
+  animation:smokeMove 40s linear infinite;
+  z-index:-2;
+  pointer-events:none;
+}
+@keyframes smokeMove{from{transform:translate(0,0);}to{transform:translate(-300px,-300px);}}
+
+/* Blood drip */
+.blood-drip{position:fixed;top:0;left:0;width:100%;height:150px;overflow:hidden;z-index:-1;pointer-events:none;}
+.drop{position:absolute;top:0;width:5px;background:var(--red);border-radius:50%;opacity:0.7;animation:drip 4s infinite ease-in;}
+@keyframes drip{0%{transform:translateY(0);opacity:1;}70%{opacity:1;}100%{transform:translateY(150px);opacity:0;}}
+
+/* Nav */
+nav{
+  text-align:center;
+  margin:40px auto;
+  background:rgba(18,18,18,0.85);
+  padding:15px 0;
+  border-radius:14px;
+  backdrop-filter:blur(6px);
+  box-shadow:0 0 35px rgba(255,44,44,0.2);
+}
+nav a{
+  color:var(--text);
+  margin:0 20px;
+  font-weight:600;
+  font-size:1.2rem;
+  text-decoration:none;
+  position:relative;
+  transition:0.3s;
+}
+nav a::after{
+  content:"";
+  position:absolute;
+  width:0; height:2px;
+  bottom:-5px; left:0;
+  background:var(--red);
+  transition:0.3s;
+}
+nav a:hover{color:var(--hover-red);transform:scale(1.05);}
+nav a:hover::after{width:100%;}
+
+/* Header with animated letters */
+header{text-align:center;padding-bottom:50px;position:relative;overflow:hidden;}
+header h1{
+  font-size:4rem;
+  font-weight:900;
+  display:inline-block;
+}
+header h1 span{
+  display:inline-block;
+  background:linear-gradient(45deg,var(--red),#ff5555);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 10px rgba(255,44,44,0.5);
+  animation:letterGlitch 2s infinite;
+}
+header h1 span:nth-child(1){animation-delay:0s;}
+header h1 span:nth-child(2){animation-delay:0.1s;}
+header h1 span:nth-child(3){animation-delay:0.2s;}
+header h1 span:nth-child(4){animation-delay:0.3s;}
+header h1 span:nth-child(5){animation-delay:0.4s;}
+@keyframes letterGlitch{
+  0%,100%{transform:translate(0,0);text-shadow:2px 0 red,-2px 0 cyan;}
+  20%{transform:translate(-2px,0);text-shadow:-2px 0 red,2px 0 cyan;}
+  40%{transform:translate(2px,0);text-shadow:2px 0 cyan,-2px 0 red;}
+  60%{transform:translate(-3px,0);text-shadow:-3px 0 red,3px 0 cyan;}
+  80%{transform:translate(2px,0);text-shadow:2px 0 red,-2px 0 cyan;}
+}
+header p{
+  color:var(--gray);
+  font-style:italic;
+  margin-top:12px;
+  font-size:1.2rem;
+  text-shadow:0 0 6px rgba(255,44,44,0.3);
+}
+
+/* Sections */
+section{
+  max-width:720px;
+  margin:0 auto 60px;
+  padding:30px 35px;
+  background:rgba(25,25,25,0.85);
+  border-radius:16px;
+  box-shadow:0 0 50px rgba(255,44,44,0.15);
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+section.visible{opacity:1;transform:translateY(0);}
+section:hover{background:rgba(30,30,30,0.95);}
+
+/* Section titles */
+h2{
+  border-left:6px solid var(--red);
+  padding-left:15px;
+  margin-bottom:20px;
+  font-size:2rem;
+  color:var(--red);
+  font-weight:700;
+  text-shadow:0 0 10px rgba(255,44,44,0.5);
+  transition:0.3s all;
+  cursor:pointer;
+}
+h2:hover{
+  text-shadow:0 0 20px var(--red),0 0 30px var(--hover-red);
+  transform:scale(1.05);
+}
+
+/* List items hover effect */
+li{
+  margin-bottom:14px;
+  position:relative;
+  transition:0.3s all;
+  cursor:pointer;
+}
+li:hover{
+  transform:translateX(10px);
+  color:var(--hover-red);
+}
+li::after{
+  content:"";
+  position:absolute;
+  bottom:0; left:0;
+  width:0; height:2px;
+  background:var(--red);
+  transition:0.3s;
+}
+li:hover::after{width:100%;}
+
+/* Text */
+p,ul{font-size:1.15rem;color:var(--text);}
+ul{padding-left:24px;margin-top:15px;}
+
+/* Footer */
+footer{
+  margin-top:auto;
+  padding:30px 0;
+  text-align:center;
+  color:var(--gray);
+  font-size:0.9rem;
+  border-top:1px solid #222;
+}
+
+/* Top button */
+#topBtn{
+  display:none;
+  position:fixed;bottom:25px;right:25px;
+  background:var(--red);color:white;
+  border:none;padding:12px 20px;border-radius:10px;
+  font-size:1.15rem;
+  cursor:pointer;box-shadow:0 0 25px var(--red);
+  transition:all 0.3s;
+}
+#topBtn:hover{background:#cc0000;transform:scale(1.1);box-shadow:0 0 35px var(--red);}
+
+/* Social links */
+a.social-link{color:var(--red);font-weight:700;text-decoration:none;margin-right:24px;transition:all 0.3s;}
+a.social-link:hover{color:#ff5555;text-shadow:0 0 12px var(--red);}
+</style>
+</head>
+<body>
+
+<div class="smoke"></div>
+<div class="blood-drip">
+  <div class="drop" style="left:12%;animation-delay:0s;height:18px;"></div>
+  <div class="drop" style="left:32%;animation-delay:1s;height:14px;"></div>
+  <div class="drop" style="left:52%;animation-delay:2s;height:20px;"></div>
+  <div class="drop" style="left:72%;animation-delay:3s;height:16px;"></div>
+  <div class="drop" style="left:90%;animation-delay:4s;height:12px;"></div>
+</div>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header>
+  <h1>
+    <span>Z</span><span>e</span><span>r</span><span>e</span><span>f</span>
+  </h1>
+  <p>"Surviving in the shadows. Creating in silence."</p>
+</header>
+
+<section id="about">
+  <h2>?? About Me</h2>
+  <p>I am <strong>Zeref</strong>, a coder living in shadows and darkness.  
+  I exist between two worlds — coding by day, reflecting by night.  
+  This is my space to share my creations.</p>
+</section>
+
+<section id="skills">
+  <h2>?? Skills</h2>
+  <ul>
+    <li>HTML, CSS, JavaScript</li>
+    <li>Minimalist UI/UX design</li>
+    <li>Version control (Git/GitHub)</li>
+    <li>VS Code, Terminal, Figma</li>
+  </ul>
+</section>
+
+<section id="projects">
+  <h2>?? Projects</h2>
+  <ul>
+    <li><strong>GhoulID</strong> — Dark profile template</li>
+    <li><strong>SilentBlog</strong> — Minimal aesthetic blog</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>?? Contact</h2>
+  <p>Want to collaborate or just say hi? Reach out:</p>
+  <p>
+    <a href="https://github.com/zeref" target="_blank" class="social-link">GitHub</a>
+    <a href="mailto:zeref@email.com" class="social-link">Email</a>
+  </p>
+</section>
+
+<footer>
+  &copy; 2025 Zeref. Created in darkness, shared in light.
+</footer>
+
+<button onclick="topFunction()" id="topBtn" title="Back to top">? Top</button>
+
+<script>
+// Fade-in sections
+const sections=document.querySelectorAll('section');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting) entry.target.classList.add('visible');});
+},{threshold:0.1});
+sections.forEach(section=>observer.observe(section));
+
+// Top button
+const topBtn=document.getElementById('topBtn');
+window.addEventListener('scroll',()=>{topBtn.style.display=window.scrollY>150?'block':'none';});
+function topFunction(){window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+
+</body>
+</html>
