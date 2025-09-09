@@ -18,4 +18,4 @@ Fully responsive design
 
 ## Usage
 
-https://github.com/hidayat-0429/zeref-portfolio.git
+https://hidayat-0429.github.io/zeref-portfolio/
