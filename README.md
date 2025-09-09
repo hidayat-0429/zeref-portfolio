@@ -17,6 +17,5 @@ Fully responsive design
 *Contact* – Social links & email
 
 ## Usage
-Clone the repo:
-```bash
-git clone https://github.com/hidayat-0429/zeref-portfolio.git
+
+https://github.com/hidayat-0429/zeref-portfolio.git
